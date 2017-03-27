@@ -1,0 +1,18 @@
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\bin\Debug\InstallService.exe.config
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\bin\Debug\InstallService.exe
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\bin\Debug\InstallService.pdb
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\bin\Debug\MetroFramework.Design.dll
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\bin\Debug\MetroFramework.dll
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\bin\Debug\MetroFramework.Fonts.dll
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\obj\Debug\InstallService.csprojResolveAssemblyReference.cache
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\obj\Debug\InstallService.Main.resources
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\obj\Debug\InstallService.Properties.Resources.resources
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\obj\Debug\InstallService.csproj.GenerateResource.Cache
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\obj\Debug\InstallService.exe
+c:\users\dmitryj\documents\visual studio 2015\Projects\InstallService\InstallService\obj\Debug\InstallService.pdb
+C:\Users\DmitryJ\Documents\Visual Studio 2015\Projects\InstallService\InstallService\obj\Debug\InstallService.ServiceForm.resources
+C:\Users\DmitryJ\Documents\Visual Studio 2015\Projects\InstallService\InstallService\obj\Debug\InstallService.Notification.resources
+C:\Users\DmitryJ\Documents\Visual Studio 2015\Projects\InstallService\InstallService\obj\Debug\InstallService.SettingsForm.resources
+C:\Users\Dimon\Desktop\InstallService\InstallService\bin\Debug\InstallService.exe.config
+C:\Users\Dimon\Desktop\InstallService\InstallService\obj\Debug\InstallService.exe
+C:\Users\Dimon\Desktop\InstallService\InstallService\obj\Debug\InstallService.pdb
