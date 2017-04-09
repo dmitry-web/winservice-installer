@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define InstallService_TargetDir=$(var.InstallService.TargetDir)?>
+	<Product Id="00031aaa-70db-48e5-bb77-b6bd046d8a8b" Name="Service Installer" Language="1033" Version="1.0.0.0" Manufacturer="dmitry-web" UpgradeCode="11d4226b-31ef-4444-8e27-5401313db547">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <Icon Id="app.ico" SourceFile="$(var.ProjectDir)app.ico"/>
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)license.rtf" />
+    <Property Id="ARPPRODUCTICON" Value="app.ico" />
+    
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_InstallDir"/>
+    
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes"/>
+
+		<Feature Id="ProductFeature" Title="Service Installer" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="Service Installer" />
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+          <Directory Id="ApplicationProgramsFolder" Name="Service Installer"/>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+		</Directory>
+	</Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+    <Component Id="ApplicationShortcut" Guid="10fe65b5-c098-4baa-9713-0e049c1d1ddd">
+        <Shortcut Id="ApplicationStartMenuShortcut" 
+                  Name="Service Installer"
+                  Description="Windows Service Installer"
+                  Target="[INSTALLFOLDER]InstallService.exe"
+                  WorkingDirectory="INSTALLFOLDER"/>
+        <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\InstallService" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  
+    <DirectoryRef Id="DesktopFolder">
+        <Component Id="ApplicationShortcutDesktop" Guid="353e0d19-d2e7-4b34-ad0d-4f64ec29801f">
+          <Shortcut Id="ApplicationDesktopShortcut" 
+                    Name="Service Installer" 
+                    Description="Windows Service Installer" 
+                    Target="[INSTALLFOLDER]InstallService.exe" 
+                    WorkingDirectory="INSTALLFOLDER" />
+          <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
+          <RegistryValue Root="HKCU" Key="Software\InstallService" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+        </Component>
+    </DirectoryRef>
+  </Fragment>
+  
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+			<Component Id="InstallService.exe" Guid="4f9ec3e0-6a41-4ce2-99b7-1b5522f3b2c3">
+			  <File Id="InstallService.exe" Name="InstallService.exe" Source="$(var.InstallService_TargetDir)InstallService.exe" />
+			</Component>
+			<Component Id="InstallService.exe.config" Guid="441719c8-31e1-472b-8dd1-f1c99fff78ac">
+			  <File Id="InstallService.exe.config" Name="InstallService.exe.config" Source="$(var.InstallService_TargetDir)InstallService.exe.config" />
+			</Component>
+			<Component Id="MetroFramework.dll" Guid="01ea51f7-0af0-48b9-a605-5d0c254f6641">
+			  <File Id="MetroFramework.dll" Name="MetroFramework.dll" Source="$(var.InstallService_TargetDir)MetroFramework.dll" />
+			</Component>
+			<Component Id="MetroFramework.Fonts.dll" Guid="0f710a51-fcb2-4de6-b9d8-a221e03f7a63">
+			  <File Id="MetroFramework.Fonts.dll" Name="MetroFramework.Fonts.dll" Source="$(var.InstallService_TargetDir)MetroFramework.Fonts.dll" />
+			</Component>
+			<Component Id="MetroFramework.Design.dll" Guid="08355f64-5e54-4219-980b-19e4352b64a1">
+			  <File Id="MetroFramework.Design.dll" Name="MetroFramework.Design.dll" Source="$(var.InstallService_TargetDir)MetroFramework.Design.dll" />
+			</Component>
+      <ComponentRef Id="ApplicationShortcut" />
+		</ComponentGroup>
+	</Fragment>
+</Wix>
